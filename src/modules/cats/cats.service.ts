@@ -13,7 +13,7 @@ export class CatsService {
   ) {}
 
   public async create(createCatDto: CreateCatDto) {
-    const createdCat = new this.catModel(createCatDto);
+    const createdCat = new this.catOneModel(createCatDto);
     const result = await createdCat.save();
     return createResData( result, '0', '', true);
   }
@@ -26,7 +26,17 @@ export class CatsService {
 
   public async deleteByName() {
     const result = await this.catModel.deleteMany({
-      name: 'xiaomiao1',
+      name: '小蓝',
+    });
+    return createResData( result, '0', '', true);
+  }
+
+  public async update() {
+    const result = await this.catModel.updateMany({
+      name: '小红',
+    }, {
+      name: '小蓝',
+      age: 8,
     });
     return createResData( result, '0', '', true);
   }

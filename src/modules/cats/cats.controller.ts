@@ -19,4 +19,9 @@ export class CatsController {
   deleteByName() {
     return this.catsService.deleteByName();
   }
+
+  @Post('update-cats')
+  update() {
+    return this.catsService.update();
+  }
 }
