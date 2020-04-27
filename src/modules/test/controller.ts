@@ -14,4 +14,9 @@ export class TestController {
   testPost(@Body() data) {
     return this.testServer.testPost(data);
   }
+
+  @Post('read-file')
+  readFile(@Body() data) {
+    return this.testServer.readFile(data);
+  }
 }
